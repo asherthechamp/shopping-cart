@@ -3,19 +3,15 @@ import React from "react";
 import Cart from "./components/Cart";
 import Filter from "./components/Filter";
 import Products from "./components/Products";
-import data from "./data.json";
 import store from "./store";
 import { Provider } from "react-redux";
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      products: data.products,
       cartItems: localStorage.getItem("cartItems")
         ? JSON.parse(localStorage.getItem("cartItems"))
         : [],
-      size: "",
-      sort: "",
     };
   }
 
@@ -91,13 +87,7 @@ class App extends React.Component {
           <main>
             <div className="content">
               <div className="main">
-                <Filter
-                  count={this.state.products.length}
-                  size={this.state.size}
-                  sort={this.state.sort}
-                  filterProducts={this.filterProducts}
-                  sortProducts={this.sortProducts}
-                />
+                <Filter />
 
                 <Products
                   products={this.state.products}
