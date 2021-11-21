@@ -33,18 +33,18 @@ const Product = mongoose.model(
   })
 );
 
-app.get("/api/products", async (req, res) => {
+app.get("/products", async (req, res) => {
   const products = await Product.find({});
   res.send(products);
 });
 
-app.post("/api/products", async (req, res) => {
+app.post("/products", async (req, res) => {
   const newProduct = new Product(req.body);
   const savedProduct = await newProduct.save();
   res.send(savedProduct);
 });
 
-app.delete("/api/products/:id", async (req, res) => {
+app.delete("/products/:id", async (req, res) => {
   const deleteProduct = await Product.findByIdAndDelete(req.params.id);
   res.send(deleteProduct);
 });
@@ -76,7 +76,7 @@ const Order = mongoose.model(
   )
 );
 
-app.post("/api/orders", async (req, res) => {
+app.post("/orders", async (req, res) => {
   if (
     !req.body.name ||
     !req.body.email ||
