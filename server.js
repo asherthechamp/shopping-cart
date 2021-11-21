@@ -94,5 +94,5 @@ app.post("/api/orders", async (req, res) => {
 // var mongoDB = process.env.MONGODB_URI || dev_db_url;
 // app.listen(mongoDB, () => console.log("serve at github pages"));
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log("serve at http://localhost:5000"));
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => console.log("serve at http://localhost:5000"));
