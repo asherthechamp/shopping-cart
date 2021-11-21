@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
 const app = express();
+const config = require("dotenv").config();
 
 app.use(bodyParser.json());
 
