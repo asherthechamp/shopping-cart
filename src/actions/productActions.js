@@ -5,11 +5,23 @@ import {
 } from "../types";
 
 export const fetchProducts = () => async (dispatch) => {
-  const res = await fetch("/api/products");
-  const data = await res.json();
+  const res = await fetch(
+    "https://ecomm-shop-cart.herokuapp.com/api/products",
+    {
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    }
+  );
+  console.log(res.data);
+  const result = await res.json();
+  console.log(result);
   dispatch({
     type: FETCH_PRODUCTS,
-    payload: data,
+    payload: result,
   });
 };
 
